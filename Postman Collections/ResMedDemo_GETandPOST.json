@@ -1,0 +1,57 @@
+{
+  "variables": [],
+  "info": {
+    "name": "ResMedDemo",
+    "_postman_id": "efbda388-fa3d-a288-534a-568d4a968174",
+    "description": "This is a demo to test REST API GET and POST requests ",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "_postman_id": "27f2b553-d8f5-0700-7df4-4817e46af9f2",
+      "name": "testPOST",
+      "request": {
+        "url": "{{url}}/api/jsonblob",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"content\": \"Test this Post\"\n}"
+        },
+        "description": "This is to demo a POST request test using a sample url."
+      },
+      "response": []
+    },
+    {
+      "_postman_id": "45ae77a1-e272-4b36-3397-1e66c7116765",
+      "name": "testGET",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Content-Type is present\", function () {",
+              "    pm.response.to.have.header(\"Content-Type\");",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "https://jsonplaceholder.typicode.com",
+        "method": "GET",
+        "header": [],
+        "body": {},
+        "description": "Make a GET request and check if Content-Type is present"
+      },
+      "response": []
+    }
+  ]
+}
